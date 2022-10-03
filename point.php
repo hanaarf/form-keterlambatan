@@ -11,11 +11,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="img/logo/logo.png" rel="icon">
-  <title>RuangAdmin - Blank Page</title>
+  <link href="img/lg.jpg" rel="icon">
+  <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/ruang-admin.min.css" rel="stylesheet">
+  <link href="css/point.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -218,7 +218,7 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">View All Taks</a>
               </div>
             </li>
-            <div class="topbar-divider d-none d-sm-block"></div>
+            
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -251,15 +251,49 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Point Keterlambatan</h1>
+            <h5>Point Keterlambatan</h5>
             <ol class="breadcrumb">
              
             </ol>
           </div>
 
           <div class="text-center">
+          <h6><a href="tambahpoint.html">Create</a></h6>
+          
+          <div class="table-responsive">
+                  <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>No</th>
+                        <th>Jenis</th>
+                        <th>Point</th>
+                        <th>Sanksi</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                $sql = "SELECT * FROM `data_pelanggaran`";
+                $query = mysqli_query ($connect,$sql);
+                while($data= mysqli_fetch_array ($query)){
+                    echo "
+                <tr height = 50px class='data'>
+                    <td>$data[no_pelanggaran]</td>
+                    <td>$data[jenis_pelanggaran]</td>
+                    <td>$data[point]</td>
+                    <td>$data[sanksi]</td>
+                    <td>
+                        <a href='formeditpoint.php?no_pelanggaran=".$data ['no_pelanggaran']."'>Edit  </a> 
+                        <a href='hapuspoint.php?no_pelanggaran=".$data ['no_pelanggaran']."'>Hapus</a>
+                    </td>
+                </tr>
+                    ";
+                }
+                ?>
+                    </tbody>
+                  </table>
+            </div>
             
-            <h4 class="pt-3">save your <b>imagination</b> here!</h4>
           </div>
 
           <!-- Modal Logout -->

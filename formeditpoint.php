@@ -1,7 +1,19 @@
 <?php
-    include 'koneksi.php'
+    include 'koneksi.php';
+
+    $no_pelanggaran = $_GET['no_pelanggaran'];
+    $sql = "SELECT * FROM data_pelanggaran WHERE no_pelanggaran='$no_pelanggaran'";
+    $query = mysqli_query($connect, $sql);
+    $data = mysqli_fetch_assoc($query);
+
+    if(mysqli_num_rows($query) < 1){
+        die("Data Tidak Ditemukan");
+    }
 ?>
 
+<?php
+    include 'koneksi.php'
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +28,7 @@
   <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/ruang-admin.min.css" rel="stylesheet">
+  <link href="css/tambahpoint.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -219,7 +231,7 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">View All Taks</a>
               </div>
             </li>
-            
+           
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -252,50 +264,37 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h5 >Keterlambatan Guru</h5>
+            <h5>Ubah Data</h5>
             <ol class="breadcrumb">
              
             </ol>
           </div>
 
           <div class="text-center">
-          <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>Id</th>
-                        <th>Nama</th>
-                        <th>Tanggal</th>
-                        <th>Point</th>
-                        <th>Sanksi</th>
-                        <th>Keterangan</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                $sql = "SELECT * FROM `keterlambatan_guru`";
-                $query = mysqli_query ($connect,$sql);
-                while($data= mysqli_fetch_array ($query)){
-                    echo "
-                <tr height = 50px class='data'>
-                    <td>$data[nipd_guru]</td>
-                    <td>$data[nama_guru]</td>
-                    <td>$data[tanggal]</td>
-                    <td>$data[point]</td>
-                    <td>$data[sanksi]</td>
-                    <td>$data[keterangan]</td>
-                    <td>
-                        <a href='formeditguru.php?nipd_guru=".$data ['nipd_guru']."'>Edit  </a> 
-                        <a href='hapusguru.php?nipd_guru=".$data ['nipd_guru']."'> Hapus</a>
-                    </td>
-                </tr>
-                    ";
-                }
-                ?>
-                    </tbody>
-                  </table>
-            </div>
+         
+    <hr><br>
+    
+    <form action="editpoint.php" method="post">
+        
+    <div class="kanankiri">
+        <div class="kanan">
+        <p><label class="p">no pelanggaran : <input type="number" class="input" name="no_pelanggaran" value="<?php echo $data['no_pelanggaran'] ?>" required="required"></label></p>
+
+        <p><label class="p">jenis pelanggaran : <input type="text" class="input" name="jenis_pelanggaran" value="<?php echo $data['jenis_pelanggaran'] ?>"  required="required"></label></p>
+
+        
+
+        <div class="kiri">
+        <p><label class="p">point : <input type="text" class="input" name="point" value="<?php echo $data['point'] ?>" required="required"></label></p>
+
+
+        <p><label class="p">sanksi :  <input type="text" class="input" name="sanksi" value="<?php echo $data['sanksi'] ?>" required="required"></label></p>
+
+        </div>
+    </div>
+
+        <input type="submit" class="submit" name="simpan" value="simpan">
+    </form>
             
           </div>
 
@@ -325,11 +324,7 @@
         <!---Container Fluid-->
       </div>
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          
-        </div>
-      </footer>
+      
       <!-- Footer -->
     </div>
   </div>

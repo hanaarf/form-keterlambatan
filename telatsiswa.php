@@ -11,8 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="img/logo/logo.png" rel="icon">
-  <title>Point</title>
+  <link href="img/lg.jpg" rel="icon">
+  <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/telatsiswa.css" rel="stylesheet">
@@ -218,7 +218,7 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">View All Taks</a>
               </div>
             </li>
-            <div class="topbar-divider d-none d-sm-block"></div>
+            
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -251,7 +251,7 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Keterlambatan Siswa</h1>
+            <h5 >Keterlambatan Siswa</h5>
             <ol class="breadcrumb">
              
             </ol>

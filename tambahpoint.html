@@ -2,7 +2,6 @@
     include 'koneksi.php'
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +15,7 @@
   <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/ruang-admin.min.css" rel="stylesheet">
+  <link href="css/tambahpoint.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -219,7 +218,7 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">View All Taks</a>
               </div>
             </li>
-            
+           
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -252,51 +251,40 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h5 >Keterlambatan Guru</h5>
+            <h5>Tambah Data</h5>
             <ol class="breadcrumb">
              
             </ol>
           </div>
 
           <div class="text-center">
-          <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>Id</th>
-                        <th>Nama</th>
-                        <th>Tanggal</th>
-                        <th>Point</th>
-                        <th>Sanksi</th>
-                        <th>Keterangan</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                $sql = "SELECT * FROM `keterlambatan_guru`";
-                $query = mysqli_query ($connect,$sql);
-                while($data= mysqli_fetch_array ($query)){
-                    echo "
-                <tr height = 50px class='data'>
-                    <td>$data[nipd_guru]</td>
-                    <td>$data[nama_guru]</td>
-                    <td>$data[tanggal]</td>
-                    <td>$data[point]</td>
-                    <td>$data[sanksi]</td>
-                    <td>$data[keterangan]</td>
-                    <td>
-                        <a href='formeditguru.php?nipd_guru=".$data ['nipd_guru']."'>Edit  </a> 
-                        <a href='hapusguru.php?nipd_guru=".$data ['nipd_guru']."'> Hapus</a>
-                    </td>
-                </tr>
-                    ";
-                }
-                ?>
-                    </tbody>
-                  </table>
-            </div>
             
+            <form action="simpanpoint.php" method="post">
+                  
+                <p><label class="id">Nomor : <input type="number" class="input" name="no_pelanggaran" required="required"></label></p>
+
+                <p><label class="id">Jenis : <input type="text" class="input1"  name="jenis_pelanggaran" required="required"></label></p>
+                <p><label class="id">Point : <input type="number" class="input2"  name="point" required="required"></label></p>
+                <p><label class="id">Sanksi: <input type="text" class="input3" name="sanksi" required="required"></label></p>
+               
+
+               
+                <button onclick="proses()" type="submit" class="submit" name="simpan" value="simpan">Simpan</button>
+                <div id="hasil" class="kotak"></div>
+                <script>
+                    function proses(){
+                        var hasil = "succesfully send"
+        
+                        
+                        document.getElementById("hasil").innerHTML = hasil 
+        
+                        
+                    }
+        
+                </script>
+               
+               
+
           </div>
 
           <!-- Modal Logout -->
@@ -325,11 +313,7 @@
         <!---Container Fluid-->
       </div>
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          
-        </div>
-      </footer>
+      
       <!-- Footer -->
     </div>
   </div>
