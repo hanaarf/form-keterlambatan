@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Guru</title>
+    <title>Form Siswa</title>
     <link rel="shortcut icon" type="" href="logo.jpeg">
     
     <link rel='stylesheet' type='text/css' href='css/formsiswa.css'>
@@ -29,18 +29,18 @@
     <div class="about">
         <img src="img/orang.jpeg" alt="" class="orang">
         <div class="container">
-            <form action="" method="POST">
+            <form action="simpanformsiswa.php" method="POST">
                 <tr>
                     <td>
                         <h2>Welcome to StarLate</h2>
                         <p><label>Id Siswa  : <input type="number" name="id_siswa" required="required" class="input1"></label></p>
                         <p><label>Nama Siswa  : <input type="text" name="nama_siswa" required="required" class="input2"></label></p>
-                        <p><label>Kelas  : <input type="number" name="kelas" required="required" class="input3"></label></p>
-                        <p><label>Tanggal  : <input type="number" name="tanggal" required="required" class="input4"></label></p>
-                        <p><label>Point  : <input type="text" name="point" required="required" class="input5"></label></p>
+                        <p><label>Kelas  : <input type="text" name="kelas" required="required" class="input3"></label></p>
+                        <p><label>Tanggal  : <input type="date" name="tanggal" required="required" class="input4"></label></p>
+                        <p><label>Point  : <input type="number" name="point" required="required" class="input5"></label></p>
                         <p><label>Sanksi  : <input type="text" name="sanksi" required="required" class="input6"></label></p>
                         <p><label>Keterangan  : <input type="text" name="keterangan" required="required" class="input7"></label></p>
-                        <button type="submit" class="button">Simpan</button>
+                        <button type="submit" name="simpan" class="button">Simpan</button>
                      </td>
                 </tr>
             </form>

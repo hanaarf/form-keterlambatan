@@ -24,7 +24,7 @@
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-          <img src="img/lg.jpg">
+        <img src="img/logo/logo2.png">
         </div>
         <div class="sidebar-brand-text mx-3">StarLate</div>
       </a>
@@ -258,45 +258,34 @@
           </div>
 
           <div class="text-center">
-            <div class="table-responsive">
+          <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
-                        
+                        <th>Id</th>
                         <th>Nama</th>
-                        <th>Jumlah Point</th>
-                        
+                        <th>Point</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
-                $sql = "SELECT * FROM `keterlambatan_siswa`";
+                $sql = "SELECT * FROM `datasiswa`";
                 $query = mysqli_query ($connect,$sql);
                 while($data= mysqli_fetch_array ($query)){
                     echo "
                 <tr height = 50px class='data'>
-                   
+                    <td>$data[id_siswa]</td>
                     <td>$data[nama_siswa]</td>
+                    <td>$data[point]</td>
                    
+                    <td>
+                        <a href=''>Edit  </a> 
+                        <a href=''>Hapus</a>
+                    </td>
                 </tr>
                     ";
                 }
-                ?>
-                <?php
-                $sql = "SELECT SUM (point) FROM keterlambatan_siswa`";
-                $query = mysqli_query ($connect,$sql);
-                while($data1= mysqli_fetch_array ($query)){
-                    echo "
-                <tr height = 50px class='data'>
-                   
-                    <td>$data1[point]</td>
-                   
-                </tr>
-                    ";
-                }
-
-
-               
                 ?>
                     </tbody>
                   </table>
