@@ -258,30 +258,33 @@
           </div>
 
           <div class="text-center">
-          <div class="table-responsive">
+            <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
                         <th>Id</th>
                         <th>Nama</th>
+                        
                         <th>Point</th>
+                       
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
-                $sql = "SELECT * FROM `datasiswa`";
+                $sql = "SELECT * FROM `keterlambatan_siswa`";
                 $query = mysqli_query ($connect,$sql);
                 while($data= mysqli_fetch_array ($query)){
                     echo "
                 <tr height = 50px class='data'>
                     <td>$data[id_siswa]</td>
                     <td>$data[nama_siswa]</td>
+                    
                     <td>$data[point]</td>
-                   
+                    
                     <td>
-                        <a href=''>Edit  </a> 
-                        <a href=''>Hapus</a>
+                        <a href='formeditsiswa.php?id_siswa=".$data ['id_siswa']."'>Edit  </a> 
+                        <a href='hapussiswa.php?id_siswa=".$data ['id_siswa']."'>Hapus</a>
                     </td>
                 </tr>
                     ";

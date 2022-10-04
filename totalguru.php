@@ -2,6 +2,7 @@
     include 'koneksi.php'
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
   <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/telatsiswa.css" rel="stylesheet">
+  <link href="css/ruang-admin.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -24,7 +25,7 @@
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-        <img src="img/logo/logo2.png">
+          <img src="img/logo/logo2.png">
         </div>
         <div class="sidebar-brand-text mx-3">StarLate</div>
       </a>
@@ -251,7 +252,7 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h5 >Keterlambatan Siswa</h5>
+          <h5 >Keterlambatan Guru</h5>
             <ol class="breadcrumb">
              
             </ol>
@@ -262,26 +263,30 @@
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
-                        <th>Nipd</th>
+                        <th>NIpd</th>
                         <th>Nama</th>
+                       
                         <th>Point</th>
+                       
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
-                $sql = "SELECT * FROM `dataguru`";
+                $sql = "SELECT * FROM `keterlambatan_guru`";
                 $query = mysqli_query ($connect,$sql);
                 while($data= mysqli_fetch_array ($query)){
                     echo "
                 <tr height = 50px class='data'>
                     <td>$data[nipd_guru]</td>
                     <td>$data[nama_guru]</td>
+                   
                     <td>$data[point]</td>
                    
+                    <td>$data[keterangan]</td>
                     <td>
-                        <a href=''>Edit  </a> 
-                        <a href=''>Hapus</a>
+                        <a href='formeditguru.php?nipd_guru=".$data ['nipd_guru']."'>Edit  </a> 
+                        <a href='hapusguru.php?nipd_guru=".$data ['nipd_guru']."'> Hapus</a>
                     </td>
                 </tr>
                     ";
@@ -290,6 +295,7 @@
                     </tbody>
                   </table>
             </div>
+            
           </div>
 
           <!-- Modal Logout -->
