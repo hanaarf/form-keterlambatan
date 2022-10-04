@@ -1,17 +1,4 @@
 <?php
-    include 'koneksi.php';
-
-    $no_pelanggaran = $_GET['no_pelanggaran'];
-    $sql = "SELECT * FROM data_pelanggaran WHERE no_pelanggaran='$no_pelanggaran'";
-    $query = mysqli_query($connect, $sql);
-    $data = mysqli_fetch_assoc($query);
-
-    if(mysqli_num_rows($query) < 1){
-        die("Data Tidak Ditemukan");
-    }
-?>
-
-<?php
     include 'koneksi.php'
 ?>
 
@@ -28,7 +15,7 @@
   <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/formeditpoint.css" rel="stylesheet">
+  <link href="css/telatsiswa.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -37,7 +24,7 @@
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-          <img src="img/logo/logo2.png">
+          <img src="img/lg.jpg">
         </div>
         <div class="sidebar-brand-text mx-3">StarLate</div>
       </a>
@@ -231,7 +218,7 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">View All Taks</a>
               </div>
             </li>
-           
+            
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -264,38 +251,56 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h5>Ubah Data</h5>
+            <h5 >Keterlambatan Siswa</h5>
             <ol class="breadcrumb">
              
             </ol>
           </div>
 
           <div class="text-center">
-         
-    <hr><br>
-    
-    <form action="editpoint.php" method="post">
-        
-    <div class="kanankiri">
-        <div class="kanan">
-        <p><label class="p">no pelanggaran : <input type="number" class="input" name="no_pelanggaran" value="<?php echo $data['no_pelanggaran'] ?>" required="required"></label></p>
+            <div class="table-responsive">
+                  <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                      <tr>
+                        
+                        <th>Nama</th>
+                        <th>Jumlah Point</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                $sql = "SELECT * FROM `keterlambatan_siswa`";
+                $query = mysqli_query ($connect,$sql);
+                while($data= mysqli_fetch_array ($query)){
+                    echo "
+                <tr height = 50px class='data'>
+                   
+                    <td>$data[nama_siswa]</td>
+                   
+                </tr>
+                    ";
+                }
+                ?>
+                <?php
+                $sql = "SELECT SUM (point) FROM keterlambatan_siswa`";
+                $query = mysqli_query ($connect,$sql);
+                while($data1= mysqli_fetch_array ($query)){
+                    echo "
+                <tr height = 50px class='data'>
+                   
+                    <td>$data1[point]</td>
+                   
+                </tr>
+                    ";
+                }
 
-        <p><label class="p">jenis pelanggaran : <input type="text" class="input1" name="jenis_pelanggaran" value="<?php echo $data['jenis_pelanggaran'] ?>"  required="required"></label></p>
 
-        
-
-        <div class="kiri">
-        <p><label class="p">point : <input type="text" class="input2" name="point" value="<?php echo $data['point'] ?>" required="required"></label></p>
-
-
-        <p><label class="p">sanksi :  <input type="text" class="input3" name="sanksi" value="<?php echo $data['sanksi'] ?>" required="required"></label></p>
-
-        </div>
-    </div>
-
-        <input type="submit" class="submit" name="simpan" value="simpan">
-    </form>
-            
+               
+                ?>
+                    </tbody>
+                  </table>
+            </div>
           </div>
 
           <!-- Modal Logout -->
@@ -324,7 +329,11 @@
         <!---Container Fluid-->
       </div>
       <!-- Footer -->
-      
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          
+        </div>
+      </footer>
       <!-- Footer -->
     </div>
   </div>

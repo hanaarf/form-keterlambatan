@@ -28,7 +28,7 @@
   <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/tambahpoint.css" rel="stylesheet">
+  <link href="css/formeditsiswa.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -280,20 +280,20 @@
         <div class="kanan">
         <p><label class="p">id siswa : <input type="number" class="input" name="id_siswa" value="<?php echo $data['id_siswa'] ?>" required="required"></label></p>
 
-        <p><label class="p">nama siswa : <input type="text" class="input" name="nama_siswa" value="<?php echo $data['nama_siswa'] ?>"  required="required"></label></p>
+        <p><label class="p">nama siswa : <input type="text" class="input1" name="nama_siswa" value="<?php echo $data['nama_siswa'] ?>"  required="required"></label></p>
 
-        <p><label class="p">kelas : <input type="text" class="input" name="kelas" value="<?php echo $data['kelas'] ?>"  required="required"></label></p>
+        <p><label class="p">kelas : <input type="text" class="input2" name="kelas" value="<?php echo $data['kelas'] ?>"  required="required"></label></p>
         </div>
 
         <div class="kiri">
-        <p><label class="p">tanggal : <input type="date" class="input" name="tanggal" value="<?php echo $data['tanggal'] ?>" required="required"></label></p>
+        <p><label class="p">tanggal : <input type="date" class="input3" name="tanggal" value="<?php echo $data['tanggal'] ?>" required="required"></label></p>
 
 
-        <p><label class="p">point :  <input type="number" class="input" name="point" value="<?php echo $data['point'] ?>" required="required"></label></p>
+        <p><label class="p">point :  <input type="number" class="input4" name="point" value="<?php echo $data['point'] ?>" required="required"></label></p>
         
-        <p><label class="p">sanksi :  <input type="text" class="input" name="sanksi" value="<?php echo $data['sanksi'] ?>" required="required"></label></p>
+        <p><label class="p">sanksi :  <input type="text" class="input5" name="sanksi" value="<?php echo $data['sanksi'] ?>" required="required"></label></p>
 
-        <p><label class="p">keterangan :  <input type="text" class="input" name="keterangan" value="<?php echo $data['keterangan'] ?>" required="required"></label></p>
+        <p><label class="p">keterangan :  <input type="text" class="input6" name="keterangan" value="<?php echo $data['keterangan'] ?>" required="required"></label></p>
 
         </div>
     </div>

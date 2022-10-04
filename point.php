@@ -251,7 +251,7 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h5>Point Keterlambatan</h5>
+            <h5>Point Pelanggaran</h5>
             <ol class="breadcrumb">
              
             </ol>
