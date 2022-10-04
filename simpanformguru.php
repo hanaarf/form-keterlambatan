@@ -9,14 +9,10 @@ include 'koneksi.php';
         $sanksi = $_POST['sanksi'];
         $keterangan = $_POST['keterangan'];
 
-        $get_point_sblmnya = "SELECT * FROM keterlambatan_guru WHERE nama_guru = '$nama_guru'";
-        $query = mysqli_query ($connect,$get_point_sblmnya);
-        $data= mysqli_fetch_array ($query);
-
-        $tambah_point = $data['point'] + $point_baru;
+        
 
 
-        $sql = "INSERT INTO keterlambatan_guru  VALUES ('$nipd_guru','$nama_guru','$tanggal','$tambah_point','$sanksi','$keterangan')";
+        $sql = "INSERT INTO keterlambatan_guru  VALUES ('$nipd_guru','$nama_guru','$tanggal','$point_baru','$sanksi','$keterangan')";
         $query =  mysqli_query ($connect, $sql);
         
         

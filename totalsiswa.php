@@ -15,7 +15,7 @@
   <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/telatsiswa.css" rel="stylesheet">
+  <link href="css/point.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -251,43 +251,45 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h5 >Keterlambatan Siswa</h5>
+            <h5 >Siswa Point Siswa</h5>
             <ol class="breadcrumb">
              
             </ol>
           </div>
 
           <div class="text-center">
+
+          <h6><a href="totalsiswa.html">Create</a></h6>
+
             <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
-                        <th>Id</th>
-                        <th>Nama</th>
+                      <th>Nama</th>
                         
-                        <th>Point</th>
-                       
-                        <th>Action</th>
+                      <th>Point</th>
+
+                      <th>Action</th>
+
                       </tr>
                     </thead>
                     <tbody>
                     <?php
-                $sql = "SELECT * FROM `keterlambatan_siswa`";
+                $sql = "SELECT * FROM `totalsiswa`";
                 $query = mysqli_query ($connect,$sql);
                 while($data= mysqli_fetch_array ($query)){
                     echo "
-                <tr height = 50px class='data'>
-                    <td>$data[id_siswa]</td>
+                    <tr height = 50px class='data'>
                     <td>$data[nama_siswa]</td>
-                    
-                    <td>$data[point]</td>
-                    
-                    <td>
-                        <a href='formeditsiswa.php?id_siswa=".$data ['id_siswa']."'>Edit  </a> 
-                        <a href='hapussiswa.php?id_siswa=".$data ['id_siswa']."'>Hapus</a>
+                   
+                   <td>$data[point]</td>
+
+                   <td>
+                         <a href='hapustotsiswa.php?id_siswa=".$data ['id_siswa']."'>Hapus</a>
                     </td>
-                </tr>
-                    ";
+                  
+               </tr>
+                   ";
                 }
                 ?>
                     </tbody>

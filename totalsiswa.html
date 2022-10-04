@@ -15,7 +15,7 @@
   <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/point.css" rel="stylesheet">
+  <link href="css/tambahpoint.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -24,7 +24,7 @@
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-        <img src="img/logo/logo2.png">
+          <img src="img/logo/logo2.png">
         </div>
         <div class="sidebar-brand-text mx-3">StarLate</div>
       </a>
@@ -218,7 +218,7 @@
                 <a class="dropdown-item text-center small text-gray-500" href="#">View All Taks</a>
               </div>
             </li>
-            
+           
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -251,54 +251,40 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h5 >Sisa Point guru</h5>
+            <h5>Tambah Data Awal</h5>
             <ol class="breadcrumb">
              
             </ol>
           </div>
 
           <div class="text-center">
+            
+            <form action="simpantotsiswa.php" method="post">
+                  
+                <p><label class="id">ID : <input type="number" class="input" name="id_siswa" required="required"></label></p>
 
-          <h6><a href="totalguru.html">Create</a></h6>
+                <p><label class="id">Nama Siswa : <input type="text" class="input1"  name="nama_siswa" required="required"></label></p>
+                <p><label class="id">Point : <input type="number" class="input2"  name="point" required="required"></label></p>
+               
+               
 
-
-            <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                      <tr>
-                       
-                        <th>Nama</th>
+               
+                <button onclick="proses()" type="submit" class="submit" name="simpan" value="simpan">Simpan</button>
+                <div id="hasil" class="kotak"></div>
+                <script>
+                    function proses(){
+                        var hasil = "succesfully send"
+        
                         
-                        <th>Point</th>
-
-                        <th>Action</th>
-                       
+                        document.getElementById("hasil").innerHTML = hasil 
+        
                         
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                $sql = "SELECT * FROM `totalguru`";
-                $query = mysqli_query ($connect,$sql);
-                while($data= mysqli_fetch_array ($query)){
-                    echo "
-                <tr height = 50px class='data'>
-                     <td>$data[nama_guru]</td>
-                    
-                    <td>$data[point]</td>
+                    }
+        
+                </script>
+               
+               
 
-                    <td>
-                       <a href='hapustotguru.php?nipd_guru=".$data ['nipd_guru']."'>Hapus</a>
-                    </td>
-                    
-                   
-                </tr>
-                    ";
-                }
-                ?>
-                    </tbody>
-                  </table>
-            </div>
           </div>
 
           <!-- Modal Logout -->
@@ -327,11 +313,7 @@
         <!---Container Fluid-->
       </div>
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          
-        </div>
-      </footer>
+      
       <!-- Footer -->
     </div>
   </div>

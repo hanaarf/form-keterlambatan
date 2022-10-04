@@ -10,14 +10,8 @@ include 'koneksi.php';
         $sanksi = $_POST['sanksi'];
         $keterangan = $_POST['keterangan'];
 
-        $get_point_sblmnya = "SELECT * FROM keterlambatan_siswa WHERE nama_siswa = '$nama_siswa'";
-        $query = mysqli_query ($connect,$get_point_sblmnya);
-        $data= mysqli_fetch_array ($query);
-
-        $tambah_point = $data['point'] + $point_baru;
-
-
-        $sql = "INSERT INTO keterlambatan_siswa  VALUES ('$id_siswa','$nama_siswa','$kelas','$tanggal','$tambah_point','$sanksi','$keterangan')";
+        
+        $sql = "INSERT INTO keterlambatan_siswa  VALUES ('$id_siswa','$nama_siswa','$kelas','$tanggal','$point_baru','$sanksi','$keterangan')";
         $query =  mysqli_query ($connect, $sql);
         
         
