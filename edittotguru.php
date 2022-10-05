@@ -1,8 +1,8 @@
 <?php
     include 'koneksi.php';
 
-    $no_pelanggaran = $_GET['no_pelanggaran'];
-    $sql = "SELECT * FROM data_pelanggaran WHERE no_pelanggaran='$no_pelanggaran'";
+    $nipd_guru = $_GET['nipd_guru'];
+    $sql = "SELECT * FROM totalguru WHERE nipd_guru='$nipd_guru'";
     $query = mysqli_query($connect, $sql);
     $data = mysqli_fetch_assoc($query);
 
@@ -28,7 +28,7 @@
   <title>StarLate</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/formeditpoint.css" rel="stylesheet">
+  <link href="css/edittotguru.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -274,21 +274,20 @@
          
     <hr><br>
     
-    <form action="editpoint.php" method="post">
+    <form action="simpantotalguru.php" method="post">
         
     <div class="kanankiri">
         <div class="kanan">
-        <p><label class="p">no pelanggaran : <input type="number" class="input" name="no_pelanggaran" value="<?php echo $data['no_pelanggaran'] ?>" required="required"></label></p>
+        <p><label class="p">nipd : <input type="text" class="input" name="nipd_guru" value="<?php echo $data['nipd_guru'] ?>" required="required"></label></p>
 
-        <p><label class="p">jenis pelanggaran : <input type="text" class="input1" name="jenis_pelanggaran" value="<?php echo $data['jenis_pelanggaran'] ?>"  required="required"></label></p>
+        <p><label class="p">nama : <input type="text" class="input1" name="nama_guru" value="<?php echo $data['nama_guru'] ?>" required="required"></label></p>
+
+        <p><label class="p">point : <input type="number" class="input2" name="point" value="<?php echo $data['point'] ?>"  required="required"></label></p>
 
         
 
         <div class="kiri">
-        <p><label class="p">point : <input type="text" class="input2" name="point" value="<?php echo $data['point'] ?>" required="required"></label></p>
-
-
-        <p><label class="p">sanksi :  <input type="text" class="input3" name="sanksi" value="<?php echo $data['sanksi'] ?>" required="required"></label></p>
+       
 
         </div>
     </div>

@@ -24,7 +24,7 @@
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-        <img src="img/logo/logo2.png">
+        <img src="img/logo.jpeg" >
         </div>
         <div class="sidebar-brand-text mx-3">StarLate</div>
       </a>
@@ -251,7 +251,7 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h5 >Siswa Point Siswa</h5>
+            <h5 >Jumlah Point Siswa</h5>
             <ol class="breadcrumb">
              
             </ol>
@@ -285,6 +285,7 @@
                    <td>$data[point]</td>
 
                    <td>
+                   <a href='edittotsiswa.php?id_siswa=".$data ['id_siswa']."'>Edit</a>
                          <a href='hapustotsiswa.php?id_siswa=".$data ['id_siswa']."'>Hapus</a>
                     </td>
                   

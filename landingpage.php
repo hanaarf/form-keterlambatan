@@ -28,13 +28,13 @@
                <p class="nama">/ StarLate</p>
           </div>
           <div class="link">
-                    <a href="landingpage.php">Home</a>
+                    <a href="#home">Home</a>
                     <a href="#Point">Point</a>
                     <a href="#Form">Form</a>
           </div>
      </div>
 
-     <div class="deskripsi">
+     <div class="deskripsi" id="home">
           <div class="tulisankiri">
                <p>Let's be disciplined about our time!</p>
           </div>
